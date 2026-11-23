@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Care Hospital - Patient Appointment</title>
+</head>
+<body>
+
+  <header>
+    <h1>City Care Hospital</h1>
+    <p>Quality Healthcare for Everyone</p>
+    
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#doctors">Our Doctors</a></li>
+        <li><a href="#appointment">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="services">
+      <h2>Hospital Services</h2>
+      <article>
+        <h3>24/7 Emergency Care</h3>
+        <p>Immediate medical attention for critical conditions and trauma.</p>
+      </article>
+      <article>
+        <h3>Diagnostics &amp; Lab</h3>
+        <p>Advanced blood tests, X-ray, MRI, and CT scan facilities.</p>
+      </article>
+    </section>
+
+    <section id="doctors">
+      <h2>Meet Our Specialists</h2>
+      <article>
+        <h3>Dr. Priya Sharma</h3>
+        <p><strong>Department:</strong> Cardiology</p>
+        <p><strong>Experience:</strong> 12 Years</p>
+      </article>
+      <article>
+        <h3>Dr. Rahul Verma</h3>
+        <p><strong>Department:</strong> Orthopedics</p>
+        <p><strong>Experience:</strong> 8 Years</p>
+      </article>
+    </section>
+
+    <section id="appointment">
+      <h2>Book a Patient Appointment</h2>
+      <p>Fields marked with <span aria-hidden="true">*</span> are required.</p>
+
+      <form action="/submit-appointment" method="POST">
+        
+        <fieldset>
+          <legend>Patient Details</legend>
+
+
+          <div>
+            <label for="patient-name">Full Name *</label><br>
+            <input type="text" id="patient-name" name="patient_name" required placeholder="e.g., Pranav Piyush">
+          </div>
+
+          <div>
+            <label for="patient-email">Email Address *</label><br>
+            <input type="email" id="patient-email" name="patient_email" required placeholder="pranav@example.com">
+          </div>
+
+          <div>
+            <label for="patient-phone">Phone Number (10 digits) *</label><br>
+            <input type="tel" id="patient-phone" name="patient_phone" pattern="[0-9]{10}" required placeholder="9876543210">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Appointment Preferences</legend>
+
+          <div>
+            <label for="department">Select Department *</label><br>
+            <select id="department" name="department" required>
+              <option value="">-- Choose a Department --</option>
+              <option value="cardiology">Cardiology</option>
+              <option value="orthopedics">Orthopedics</option>
+              <option value="general">General Medicine</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="app-date">Preferred Date *</label><br>
+            <input type="date" id="app-date" name="appointment_date" required>
+          </div>
+
+          <div>
+            <label for="symptoms">Briefly Describe Symptoms</label><br>
+            <textarea id="symptoms" name="symptoms" rows="4" cols="30" placeholder="Optional details..."></textarea>
+          </div>
+        </fieldset>
+
+        <button type="submit">Confirm Appointment</button>
+        <button type="reset">Clear Form</button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 City Care Hospital. All rights reserved.</p>
+    <p>Emergency Helpline: <a href="tel:+911800123456">1800-123-456</a></p>
+  </footer>
+
+</body>
+</html>

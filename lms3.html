@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareWell General Hospital — Patient Appointment Portal</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #0b5ed7;
+      --primary-hover: #084298;
+      --border: #cbd5e1;
+      --error: #b91c1c;
+      --focus: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.75rem 1rem;
+      z-index: 1000;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      outline: 3px solid var(--focus);
+    }
+
+    header,
+    main,
+    footer {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      text-decoration: underline;
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    article {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+      background: #ffffff;
+    }
+
+    fieldset {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    legend {
+      font-weight: 700;
+      padding: 0 0.5rem;
+    }
+
+    .form-field {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .hint {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .error-msg {
+      color: var(--error);
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-top: 0.25rem;
+      min-height: 1.2em;
+    }
+
+    .status-banner {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .status-banner.success {
+      background: #dcfce7;
+      color: #14532d;
+      border: 1px solid #16a34a;
+    }
+
+    .status-banner.error {
+      background: #fee2e2;
+      color: #7f1d1d;
+      border: 1px solid #dc2626;
+    }
+
+    button[type="submit"] {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background: var(--primary-hover);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <p><strong>CareWell General Hospital</strong> — 24/7 Multispecialty Care</p>
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="#services">Hospital Services</a></li>
+        <li><a href="#doctors">Doctors</a></li>
+        <li><a href="#appointment">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <h1>Patient Care &amp; Appointment Portal</h1>
+    <p>Schedule outpatient consultations, review clinical departments, and check specialist availability.</p>
+
+    <section id="services" aria-labelledby="services-heading">
+      <h2 id="services-heading">Hospital Services</h2>
+      <div class="grid">
+        <article>
+          <h3>General Medicine &amp; Diagnostics</h3>
+          <p>Routine health checkups, preventive screenings, pathology lab testing, and digital X-ray.</p>
+        </article>
+        <article>
+          <h3>Cardiology &amp; Vascular Care</h3>
+          <p>Non-invasive cardiac evaluations, ECG, echocardiography, and hypertension management.</p>
+        </article>
+        <article>
+          <h3>Orthopedics &amp; Physiotherapy</h3>
+          <p>Joint and spine care, sports injury rehabilitation, and post-operative mobility therapy.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="doctors" aria-labelledby="doctors-heading">
+      <h2 id="doctors-heading">Available Doctors</h2>
+      <div class="grid">
+        <article>
+          <h3>Dr. Ananya Rao, MD</h3>
+          <p><strong>Department:</strong> General Medicine</p>
+          <p><strong>Timings:</strong> Mon–Sat, 9:00 AM – 1:00 PM</p>
+        </article>
+        <article>
+          <h3>Dr. Vikram Nair, DM</h3>
+          <p><strong>Department:</strong> Cardiology</p>
+          <p><strong>Timings:</strong> Mon–Fri, 2:00 PM – 6:00 PM</p>
+        </article>
+        <article>
+          <h3>Dr. Meera Krishnan, MS</h3>
+          <p><strong>Department:</strong> Orthopedics</p>
+          <p><strong>Timings:</strong> Tue–Sat, 10:00 AM – 3:00 PM</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="appointment" aria-labelledby="appointment-heading">
+      <h2 id="appointment-heading">Patient Appointment Form</h2>
+      <p id="form-instructions">Fields marked with an asterisk (*) are required.</p>
+
+      <form id="appointment-form" novalidate aria-describedby="form-instructions">
+        <fieldset>
+          <legend>Patient Details</legend>
+
+          <div class="form-field">
+            <label for="patient-name">Full Name *</label>
+            <input
+              id="patient-name"
+              name="patientName"
+              type="text"
+              autocomplete="name"
+              required
+              aria-describedby="name-error"
+            />
+            <div id="name-error" class="error-msg" role="alert" aria-live="polite"></div>
+          </div>
+
+          <div class="form-field">
+            <label for="patient-email">Email Address *</label>
+            <input
+              id="patient-email"
+              name="patientEmail"
+              type="email"
+              autocomplete="email"
+              required
+              aria-describedby="email-hint email-error"
+            />
+            <div id="email-hint" class="hint">Appointment confirmation will be sent here.</div>
+            <div id="email-error" class="error-msg" role="alert" aria-live="polite"></div>
+          </div>
+
+          <div class="form-field">
+            <label for="patient-phone">Phone Number *</label>
+            <input
+              id="patient-phone"
+              name="patientPhone"
+              type="tel"
+              autocomplete="tel"
+              pattern="[0-9+\-\s]{10,15}"
+              required
+              aria-describedby="phone-hint phone-error"
+            />
+            <div id="phone-hint" class="hint">Include 10-digit mobile number (e.g., 9876543210).</div>
+            <div id="phone-error" class="error-msg" role="alert" aria-live="polite"></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Consultation Preferences</legend>
+
+          <div class="form-field">
+            <label for="doctor-select">Preferred Doctor *</label>
+            <select id="doctor-select" name="doctor" required aria-describedby="doctor-error">
+              <option value="">-- Select a doctor --</option>
+              <option value="dr-ananya-rao">Dr. Ananya Rao (General Medicine)</option>
+              <option value="dr-vikram-nair">Dr. Vikram Nair (Cardiology)</option>
+              <option value="dr-meera-krishnan">Dr. Meera Krishnan (Orthopedics)</option>
+            </select>
+            <div id="doctor-error" class="error-msg" role="alert" aria-live="polite"></div>
+          </div>
+
+          <div class="form-field">
+            <label for="appointment-date">Preferred Appointment Date *</label>
+            <input
+              id="appointment-date"
+              name="appointmentDate"
+              type="date"
+              required
+              aria-describedby="date-error"
+            />
+            <div id="date-error" class="error-msg" role="alert" aria-live="polite"></div>
+          </div>
+
+          <div class="form-field">
+            <label for="visit-reason">Symptoms or Reason for Visit *</label>
+            <textarea
+              id="visit-reason"
+              name="visitReason"
+              rows="4"
+              required
+              aria-describedby="reason-error"
+            ></textarea>
+            <div id="reason-error" class="error-msg" role="alert" aria-live="polite"></div>
+          </div>
+        </fieldset>
+
+        <button type="submit">Request Appointment</button>
+        <div id="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 CareWell General Hospital. Emergency Helpline: 108</p>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById("appointment-form");
+      const dateInput = document.getElementById("appointment-date");
+      const statusBox = document.getElementById("form-status");
+
+      // Prevent selecting past dates
+      const today = new Date().toISOString().split("T")[0];
+      dateInput.min = today;
+
+      const fields = [
+        {
+          el: document.getElementById("patient-name"),
+          errEl: document.getElementById("name-error"),
+          validate(val) {
+            if (!val.trim()) return "Please enter the patient's full name.";
+            if (val.trim().length < 2) return "Name must be at least 2 characters long.";
+            return "";
+          }
+        },
+        {
+          el: document.getElementById("patient-email"),
+          errEl: document.getElementById("email-error"),
+          validate(val) {
+            if (!val.trim()) return "Please enter an email address.";
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim())) {
+              return "Please enter a valid email address (e.g., name@example.com).";
+            }
+            return "";
+          }
+        },
+        {
+          el: document.getElementById("patient-phone"),
+          errEl: document.getElementById("phone-error"),
+          validate(val) {
+            const digits = val.replace(/\D/g, "");
+            if (!val.trim()) return "Please enter a phone number.";
+            if (digits.length < 10 || digits.length > 15) {
+              return "Please enter a valid phone number with 10 to 15 digits.";
+            }
+            return "";
+          }
+        },
+        {
+          el: document.getElementById("doctor-select"),
+          errEl: document.getElementById("doctor-error"),
+          validate(val) {
+            if (!val) return "Please choose a preferred doctor.";
+            return "";
+          }
+        },
+        {
+          el: dateInput,
+          errEl: document.getElementById("date-error"),
+          validate(val) {
+            if (!val) return "Please select an appointment date.";
+            if (val < today) return "Appointment date cannot be in the past.";
+            return "";
+          }
+        },
+        {
+          el: document.getElementById("visit-reason"),
+          errEl: document.getElementById("reason-error"),
+          validate(val) {
+            if (!val.trim()) return "Please briefly describe the reason for your visit.";
+            return "";
+          }
+        }
+      ];
+
+      function validateField(field) {
+        const message = field.validate(field.el.value);
+        field.errEl.textContent = message;
+        field.el.setAttribute("aria-invalid", message ? "true" : "false");
+        return !message;
+      }
+
+      fields.forEach((field) => {
+        field.el.addEventListener("blur", () => validateField(field));
+        field.el.addEventListener("input", () => {
+          if (field.el.getAttribute("aria-invalid") === "true") {
+            validateField(field);
+          }
+        });
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        statusBox.textContent = "";
+        statusBox.className = "";
+
+        let firstInvalid = null;
+        fields.forEach((field) => {
+          const valid = validateField(field);
+          if (!valid && !firstInvalid) {
+            firstInvalid = field.el;
+          }
+        });
+
+        if (firstInvalid) {
+          firstInvalid.focus();
+          statusBox.textContent = "Please correct the highlighted fields before submitting.";
+          statusBox.className = "status-banner error";
+          return;
+        }
+
+        const doctorName = dateInput.form["doctor"].selectedOptions[0].text;
+        statusBox.textContent =
+          `Appointment request submitted for ${document.getElementById("patient-name").value.trim()} ` +
+          `with ${doctorName} on ${dateInput.value}.`;
+        statusBox.className = "status-banner success";
+        form.reset();
+        fields.forEach((f) => f.el.setAttribute("aria-invalid", "false"));
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Question 3: Browser Metadata -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="University Student Activity Management Portal for exploring campus clubs and registering for upcoming events.">
+  <meta name="keywords" content="University Events, Student Activities, Campus Clubs, Event Registration">
+  <meta name="author" content="First Year CSE Student">
+  <title>University Student Activity Management Portal</title>
+</head>
+<body>
+
+  <!-- Question 1: Semantic Structure & Heading Hierarchy -->
+  <header>
+    <h1>University Student Activity Portal</h1>
+    <p>Explore campus clubs, workshops, and register for upcoming fests.</p>
+    
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="#upcoming-events">Upcoming Events</a></li>
+        <li><a href="#registration-section">Event Registration</a></li>
+        <li><a href="#campus-notices">Campus Notices</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Section 1: Upcoming Events -->
+    <section id="upcoming-events" aria-labelledby="events-heading">
+      <h2 id="events-heading">Upcoming Campus Events</h2>
+
+      <article>
+        <h3>Annual Tech Hackathon 2026</h3>
+        <p><strong>Date:</strong> December 10, 2026 | <strong>Venue:</strong>C Block</p>
+        <p>A 24-hour coding competition where student teams build innovative software solutions.</p>
+      </article>
+
+      <article>
+        <h3>Robotics &amp; Rover Workshop</h3>
+        <p><strong>Date:</strong> December 15, 2026 | <strong>Venue:</strong>R and D Block</p>
+        <p>Hands-on session on autonomous navigation and sensor integration for beginners.</p>
+      </article>
+    </section>
+
+    <hr>
+
+    <!-- Question 2: Accessible Student Registration Form -->
+    <section id="registration-section" aria-labelledby="form-heading">
+      <h2 id="form-heading">Student Event Registration</h2>
+
+      <form action="#" method="POST">
+        <!-- Text Fields -->
+        <div>
+          <label for="student-name">Full Name (Required):</label><br>
+          <input type="text" id="student-name" name="studentName" placeholder="Enter your full name" required>
+        </div>
+        <br>
+
+        <div>
+          <label for="student-id">University Roll Number (Required):</label><br>
+          <input type="text" id="student-id" name="studentId" placeholder="e.g., 2600030570" required>
+        </div>
+        <br>
+
+        <div>
+          <label for="student-email">University Email (Required):</label><br>
+          <input type="email" id="student-email" name="studentEmail" placeholder="name@university.in" required>
+        </div>
+        <br>
+
+        <!-- Dropdown -->
+        <div>
+          <label for="event-select">Select Event:</label><br>
+          <select id="event-select" name="selectedEvent" required>
+            <option value="">-- Choose an Event --</option>
+            <option value="hackathon">Annual Tech Hackathon 2026</option>
+            <option value="robotics">Robotics &amp; Rover Workshop</option>
+            <option value="cultural">Cultural Music Night</option>
+          </select>
+        </div>
+        <br>
+
+        <!-- Radio Buttons (Grouped with fieldset & legend for screen readers) -->
+        <fieldset>
+          <legend>Year of Study:</legend>
+          <input type="radio" id="year-1" name="studyYear" value="1st Year" checked>
+          <label for="year-1">1st Year</label><br>
+
+          <input type="radio" id="year-2" name="studyYear" value="2nd Year">
+          <label for="year-2">2nd Year</label><br>
+
+          <input type="radio" id="year-3" name="studyYear" value="3rd Year">
+          <label for="year-3">3rd Year</label>
+        </fieldset>
+        <br>
+
+        <!-- Checkboxes -->
+        <fieldset>
+          <legend>Areas of Interest:</legend>
+          <input type="checkbox" id="int-coding" name="interests" value="Coding">
+          <label for="int-coding">Competitive Coding</label><br>
+
+          <input type="checkbox" id="int-robotics" name="interests" value="Robotics">
+          <label for="int-robotics">Robotics &amp; IoT</label><br>
+
+          <input type="checkbox" id="int-design" name="interests" value="Design">
+          <label for="int-design">UI/UX Design</label>
+        </fieldset>
+        <br>
+
+        <!-- Textarea -->
+        <div>
+          <label for="remarks">Special Requirements or Queries:</label><br>
+          <textarea id="remarks" name="remarks" rows="4" cols="40" placeholder="Any dietary needs or accessibility requests..."></textarea>
+        </div>
+        <br>
+
+        <button type="submit">Register Now</button>
+        <button type="reset">Clear Form</button>
+      </form>
+    </section>
+  </main>
+
+  <hr>
+
+  <!-- Complementary Info -->
+  <aside id="campus-notices" aria-labelledby="aside-heading">
+    <h2 id="aside-heading">Important Campus Notices</h2>
+    <ul>
+      <li>Carry your University ID card to all events.</li>
+      <li>Registrations close 24 hours before event start time.</li>
+    </ul>
+  </aside>
+
+  <footer>
+    <p>&copy; 2026 University Student Activity Council. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
